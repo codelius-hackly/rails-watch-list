@@ -1,0 +1,8 @@
+<div class="container">
+  <h1>New Bookmark</h1>
+  <%= simple_form_for [@list, @bookmark] do |f| %>
+    <%= f.association :movie %>
+    <%= f.input :comment, placeholder: "comment..." %>
+    <%= f.submit  %>
+  <% end %>
+</div>

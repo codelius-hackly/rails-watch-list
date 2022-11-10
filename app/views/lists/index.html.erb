@@ -1,0 +1,14 @@
+<div class="container">
+  <h1>Lists</h1>
+
+  <% @lists.each do |list| %>
+    <%= link_to list_path(list) do %>
+      <div class="card w-75">
+        <div class="card-body">
+          <h5 class="card-title"><%= list.name %></h5>
+          <p class="card-text">...containing <%= list.movies.count %> movies</p>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
