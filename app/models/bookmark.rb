@@ -7,7 +7,7 @@ class Bookmark < ApplicationRecord
 
   validates :list, presence: true
   validates :list, uniqueness: { scope: :movie }
-  
+
   validates :comment, presence: true
   validates :comment, length: { minimum: 6 }
 end
