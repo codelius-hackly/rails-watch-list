@@ -25,7 +25,9 @@
               </a>
               <ul class="dropdown-menu">
                 <% List.all.each do |list| %>
-                  <li><%= link_to list.name, list_path(list), class: "dropdown-item" %></li>
+                  <li>
+                    <%= link_to "#{list.name} (#{list.movies.count})", list_path(list), class: "dropdown-item" %>
+                  </li>
                 <% end %>
               </ul>
             </li>
