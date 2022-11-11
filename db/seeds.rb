@@ -47,10 +47,10 @@ List.create!(name: "Drama")
 puts 'seeding Documentary list...'
 List.create!(name: "Documentary")
 puts 'seeding My favorites list...'
-List.create!(name: "My favorites")
+List.create!(name: "Favourites")
 
 puts 'Seeding some bookmarks...'
-10.times do
+5.times do
   Bookmark.create!(
     comment: Faker::Quote.yoda,
     movie: Movie.all.sample,
