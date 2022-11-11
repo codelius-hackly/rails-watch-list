@@ -41,13 +41,21 @@ end
 #   puts "seeding - #{movie.title} - with rating: #{movie.rating}"
 # end
 
+
+# reference for lists with images
+# file = URI.open("https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/NES-Console-Set.jpg/1200px-NES-Console-Set.jpg")
+# article = Article.new(title: "NES", body: "A great console")
+# article.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+# article.save
+
+# TODO seeding lists with images
 puts 'Seeding some lists...'
 puts 'seeding Drama list...'
-List.create!(name: "Drama")
+List.create!(name: "Drama", :image Faker::LoremFlickr.image(size: "1000x100", search_terms: ['movies']))
 puts 'seeding Documentary list...'
-List.create!(name: "Documentary")
+List.create!(name: "Documentary", :image Faker::LoremFlickr.image(size: "1000x100", search_terms: ['movies']))
 puts 'seeding My favorites list...'
-List.create!(name: "Favourites")
+List.create!(name: "Favourites", :image Faker::LoremFlickr.image(size: "1000x100", search_terms: ['movies']))
 
 puts 'Seeding some bookmarks...'
 5.times do
