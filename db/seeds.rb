@@ -17,7 +17,7 @@ List.destroy_all
 
 puts 'Seeding new movies...'
 # Alex Drew's way
-# maybe unstringify in the JSON.parse
+# TODO maybe unstringify in the JSON.parse
 url = "http://tmdb.lewagon.com/movie/top_rated"
 movie_serialized = URI.open(url).read
 movies = JSON.parse(movie_serialized)
@@ -41,7 +41,6 @@ end
 #   puts "seeding - #{movie.title} - with rating: #{movie.rating}"
 # end
 
-
 # reference for lists with images
 # file = URI.open("https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/NES-Console-Set.jpg/1200px-NES-Console-Set.jpg")
 # article = Article.new(title: "NES", body: "A great console")
@@ -49,13 +48,23 @@ end
 # article.save
 
 # TODO seeding lists with images
+# Need to find other source (not Faker)
 puts 'Seeding some lists...'
 puts 'seeding Drama list...'
-List.create!(name: "Drama", :image Faker::LoremFlickr.image(size: "1000x100", search_terms: ['movies']))
+file = Faker::LoremFlickr.image(size: "1000x100", search_terms: ['drama'])
+list = List.new(name: "Drama")
+list.image.attach(io: file, filename: "drama.png", content_type: "image/png")
+list.save!
 puts 'seeding Documentary list...'
-List.create!(name: "Documentary", :image Faker::LoremFlickr.image(size: "1000x100", search_terms: ['movies']))
+file = Faker::LoremFlickr.image(size: "1000x100", search_terms: ['documentary'])
+list = List.new(name: "Documentary")
+list.image.attach(io: file, filename: "documentary.png", content_type: "image/png")
+list.save!
 puts 'seeding My favorites list...'
-List.create!(name: "Favourites", :image Faker::LoremFlickr.image(size: "1000x100", search_terms: ['movies']))
+file = Faker::LoremFlickr.image(size: "1000x100", search_terms: ['favourites'])
+list = List.new(name: "Favourites")
+list.image.attach(io: file, filename: "favourites.png", content_type: "image/png")
+list.save!
 
 puts 'Seeding some bookmarks...'
 5.times do
