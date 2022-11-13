@@ -2,7 +2,7 @@
   <h1>New List</h1>
   <%= simple_form_for @list do |f| %>
     <%= f.input :name, placeholder: "name your new list..." %>
-    <%= f.input :image %>
+    <%= f.input :image, as: :file %>
     <%= f.submit  %>
   <% end %>
 </div>

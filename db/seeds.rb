@@ -41,27 +41,19 @@ end
 #   puts "seeding - #{movie.title} - with rating: #{movie.rating}"
 # end
 
-# reference for lists with images
-# file = URI.open("https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/NES-Console-Set.jpg/1200px-NES-Console-Set.jpg")
-# article = Article.new(title: "NES", body: "A great console")
-# article.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
-# article.save
-
-# TODO seeding lists with images
-# Need to find other source (not Faker)
 puts 'Seeding some lists...'
-puts 'seeding Drama list...'
-file = Faker::LoremFlickr.image(size: "1000x100", search_terms: ['drama'])
+puts '...Drama list...'
+file = URI.open(Faker::LoremFlickr.image(size: "1200x200", search_terms: ['drama']))
 list = List.new(name: "Drama")
 list.image.attach(io: file, filename: "drama.png", content_type: "image/png")
 list.save!
-puts 'seeding Documentary list...'
-file = Faker::LoremFlickr.image(size: "1000x100", search_terms: ['documentary'])
+puts '...Documentary list...'
+file = URI.open(Faker::LoremFlickr.image(size: "1000x100", search_terms: ['documentary']))
 list = List.new(name: "Documentary")
 list.image.attach(io: file, filename: "documentary.png", content_type: "image/png")
 list.save!
-puts 'seeding My favorites list...'
-file = Faker::LoremFlickr.image(size: "1000x100", search_terms: ['favourites'])
+puts '...Favorites list...'
+file = URI.open(Faker::LoremFlickr.image(size: "1000x100", search_terms: ['favourites']))
 list = List.new(name: "Favourites")
 list.image.attach(io: file, filename: "favourites.png", content_type: "image/png")
 list.save!
